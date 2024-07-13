@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="input-div">
+    <input type="text" name="" id="names" placeholder="name">
+    <br>
+    <br>
+    <input type="number" id="age" placeholder="age">
+    <br>
+    <br>
+    <button id="adddata">Add Data</button>
+    </div>
+    <div class="table">
+        <table  id="table" border="1px solid #fff">
+        
+        </table>
+    </div>
+    <script>
+        var names = document.getElementById("names");
+        var age = document.getElementById("age");
+        var getDataBtn = document.getElementById("adddata");
+        var table = document.getElementById("table");
+        
+       
+        var arr = JSON.parse(localStorage.getItem("data")) || [];
+        
+        function generateRandomNumber() {
+    return Math.floor(Math.random() * 1001); }
+
+
+        function updateTable() {
+            table.innerHTML = `   <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Roll no</th>
+            </tr>`; 
+   
+            for (let i = 0; i < arr.length; i++) {
+                let randomNumber = generateRandomNumber();
+                table.innerHTML += `
+                <tr class=tr>
+                    <td>${arr[i].userName}</td>    
+                    <td>${arr[i].userAge}</td>    
+                    <td>${randomNumber}</td>  
+                   
+                    </tr>
+                `;
+            }
+        }
+        updateTable();
+      
+      
+
+        getDataBtn.addEventListener('click', function() {
+        
+
+            const stddata = {
+                userName: names.value,
+                userAge: age.value
+            };
+            arr.push(stddata);
+            names.value = "";
+            age.value = "";
+        
+          
+            localStorage.setItem("data", JSON.stringify(arr));
+        
+            
+            updateTable();
+        });
+        
+        </script>
+        
+        
+</body>
+</html>
