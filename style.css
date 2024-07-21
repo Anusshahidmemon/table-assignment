@@ -103,7 +103,7 @@ a:hover span:nth-child(4)
 	transform: translateY(-100%);
 }
 .input-div{
-	max-inline-size: 90%;
+width: 600px;
 	margin: 0 auto;
 	background-color: rgba(238, 230, 230, 0.232);
 	padding: 30px;
@@ -114,22 +114,50 @@ input
 {
   width: 100%;
   box-sizing: border-box;
-  padding: 8px;
+  padding: 15px;
   margin-top: 8px;
   border-radius: 4px;
   border: none;
+  
+
 }
 #adddata{
 	font-size: 1.3em;
-	width: 100%;
+    width: 100%;
+    border: none;
+    padding: 9px;
+    color: #fff;
+	background: linear-gradient(-30deg, #341ee9 0%, #00000a 50%, #dc1010 50%, #000000 100%);
+	border-radius: 5px;
 }
 table,tr{
 	color: #fff;
-	width: 400px;
+	width: 600px;
 	margin-top: 50px;
 	font-size:1.5rem;
 	
 }
 td{
 	text-align: center;
+}
+input::placeholder{
+	font-size: 16px;
+}
+input:focus{
+outline: 1px solid #06115b;
+
+}
+table#table {
+    padding: 10px;
+    border-color: #fff;
+}
+#edit button,#delete button{
+	background: none;
+	border: none;
+	color: #fff;
+	cursor: pointer;
+}
+#edit,#delete{
+	cursor: pointer;
+
 }
